@@ -1,0 +1,312 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Code formatting
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{gray},
+  breaklines=true,
+  frame=single,
+  showstringspaces=false
+}
+
+\geometry{margin=1in}
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \textbf{Portfolio – Cielo Reque Y}} \\
+    \vspace{0.5em}
+    Senior IT Student | Phone Repair Shop Owner | Web Developer
+\end{center}
+
+% ---------------- Hero ----------------
+\section*{Hero Section (Content)}
+\textbf{Headline:} Turning real‑world problems into bright solutions.  
+\textbf{Summary:} Senior IT student at Kean University and owner of a phone repair shop in Union, NJ. Builds, fixes, and documents systems so people can actually use them.  
+\textbf{Focus Areas:}
+\begin{itemize}[leftmargin=*]
+    \item Linux permissions, WSL2 quirks, and directory access
+    \item Web dev with Tailwind, Bootstrap, Foundation
+    \item Technical writing, user‑friendly guides, APA research
+    \item Hands‑on business ops and customer experience
+\end{itemize}
+
+\section*{Code: Hero Component}
+\begin{lstlisting}[language=Java]
+import React from "react";
+export default function Hero() {
+  return (
+    <section id="home" className="hero-gradient d-flex align-items-center">
+      <div className="container py-5">
+        <h1 className="display-4 fw-bold neon-text">
+          Turning real‑world problems into <br />
+          <span className="d-inline-block">bright solutions.</span>
+        </h1>
+      </div>
+    </section>
+  );
+}
+\end{lstlisting}
+
+% ---------------- About ----------------
+\section*{About Section (Content)}
+I’m Cielo Reque Y — a resourceful, bilingual problem-solver who blends technical depth with clear communication.  
+Currently finishing my IT degree at Kean University while running a local phone repair shop.  
+
+\subsection*{Core Skills}
+\begin{itemize}[leftmargin=*]
+    \item Technical writing \& documentation
+    \item React, Tailwind, Bootstrap, Foundation
+    \item WSL2 \& Ubuntu troubleshooting
+    \item API integration \& debugging
+\end{itemize}
+
+\subsection*{Values}
+\begin{itemize}[leftmargin=*]
+    \item Clarity over complexity
+    \item Tested, reusable solutions
+    \item Empathy for users \& clients
+    \item Iterative improvement
+\end{itemize}
+
+\section*{Code: About Component}
+\begin{lstlisting}[language=Java]
+import React from "react";
+export default function About() {
+  return (
+    <section id="about" className="py-5">
+      <div className="container">
+        <h2 className="fw-bold">About me</h2>
+        <p>I’m Cielo Reque Y — a resourceful, bilingual problem-solver...</p>
+      </div>
+    </section>
+  );
+}
+\end{lstlisting}
+
+% ---------------- Projects ----------------
+\section*{Projects Section (Content)}
+\begin{itemize}[leftmargin=*]
+  \item Repair shop intake \& triage system
+  \item WSL2 permissions troubleshooting guide
+  \item Responsive portfolio template
+  \item Research: smartphone upgrade resistance
+\end{itemize}
+
+\section*{Code: Projects Component}
+\begin{lstlisting}[language=Java]
+import React from "react";
+import { projects } from "../data/projects.js";
+export default function Projects() {
+  return (
+    <section id="projects" className="py-5 bg-black">
+      <div className="container">
+        <h2 className="fw-bold mb-5 neon-text text-center">Projects</h2>
+        {projects.map((p, idx) => (
+          <div key={idx}>{p.title}</div>
+        ))}
+      </div>
+    </section>
+  );
+}
+\end{lstlisting}
+
+% ---------------- Ask AI ----------------
+\section*{Ask AI Section (Content)}
+Interactive demo widget that answers troubleshooting and documentation questions.
+
+\section*{Code: AskAI Component}
+\begin{lstlisting}[language=Java]
+import React, { useState } from "react";
+export default function AskAI() {
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  return (
+    <section id="ask-ai" className="py-5">
+      <h2 className="fw-bold">Ask AI</h2>
+      <p>{answer || "Your answer will appear here."}</p>
+    </section>
+  );
+}
+\end{lstlisting}
+
+% ---------------- Contact ----------------
+\section*{Contact Section (Content)}
+For collaborations, freelance work, or to share a tricky bug—reach out.  
+
+\section*{Code: Contact Component}
+\begin{lstlisting}[language=Java]
+import React, { useState } from "react";
+export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  return (
+    <section id="contact" className="py-5 bg-black">
+      <h2 className="fw-bold neon-text text-center">Contact Me</h2>
+    </section>
+  );
+}
+\end{lstlisting}
+
+% ---------------- Footer ----------------
+\section*{Footer Section (Content)}
+© Cielo Reque Y. All rights reserved. Links: About, Projects, Ask AI, Contact.
+
+\section*{Code: Footer Component}
+\begin{lstlisting}[language=Java]
+import React from "react";
+export default function Footer() {
+  return (
+    <footer className="py-4 bg-dark text-slate-300">
+      <small>© {new Date().getFullYear()} Cielo Reque Y.</small>
+    </footer>
+  );
+}
+\end{lstlisting}
+
+% ---------------- Navbar ----------------
+\section*{Navbar Section (Content)}
+Navigation bar with links to About, Projects, Ask AI, Contact.
+
+\section*{Code: Navbar Component}
+\begin{lstlisting}[language=Java]
+import React from "react";
+export default function Navbar({ setActiveSection }) {
+  return (
+    <nav className="navbar navbar-expand-lg fixed-top bg-black">
+      <a onClick={() => setActiveSection("about")}>Cielo Reque Y</a>
+    </nav>
+  );
+}
+\end{lstlisting}
+
+% ---------------- App ----------------
+\section*{App Component}
+\begin{lstlisting}[language=Java]
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar.jsx";
+import About from "./components/About.jsx";
+import Projects from "./components/Projects.jsx";
+import AskAI from "./components/AskAI.jsx";
+import Contact from "./components/Contact.jsx";
+import Footer from "./components/Footer.jsx";
+
+export default function App() {
+  const [activeSection, setActiveSection] = useState("about");
+  return (
+    <>
+      <Navbar setActiveSection={setActiveSection} />
+      <main>
+        {activeSection === "about" && <About />}
+        {activeSection === "projects" && <Projects />}
+        {activeSection === "ask-ai" && <AskAI />}
+        {activeSection === "contact" && <Contact />}
+      </main>
+      <Footer />
+    </>
+  );
+}
+\end{lstlisting}
+
+% ---------------- Styles ----------------
+\section*{Global Styles (CSS/Tailwind)}
+\begin{lstlisting}[language=CSS]
+body {
+  background-color: #000;
+  color: #ff2fd0;
+  font-family: 'Orbitron', sans-serif;
+}
+.neon-text {
+  color: #ff2fd0;
+  text-shadow: 0 0 5px #ff2fd0, 0 0 10px #ff2fd0;
+}
+\end{lstlisting}
+
+% ---------------- HTML ----------------
+\section*{HTML Entry Point}
+\begin{lstlisting}[language=HTML]
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Cielo Reque Y — Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+  </head>
+  <body class="bg-slate-900 text-slate-100">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+\end{lstlisting}
+
+% ---------------- Configs ----------------
+\section*{Configs}
+\subsection*{PostCSS Config}
+\begin{lstlisting}[language=JavaScript]
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer
+\subsection*{PostCSS Config}
+\begin{lstlisting}[language=JavaScript]
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+\end{lstlisting}
+
+\subsection*{Tailwind Config}
+\begin{lstlisting}[language=JavaScript]
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+\end{lstlisting}
+
+\subsection*{package.json}
+\begin{lstlisting}[language=JSON]
+{
+  "name": "reque-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "animate.css": "4.1.1",
+    "bootstrap": "5.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vite": "5.4.7"
+  }
+}
+\end{lstlisting}
+
+\end{document}
